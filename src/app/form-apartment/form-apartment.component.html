@@ -1,7 +1,8 @@
 <!-- form-appartment.component.html -->
 <form [formGroup]="apartForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
-      <label>Apartment Number:</label>
+      <br>
+      <label class="text-danger"><h5 >Apartment Number:</h5></label>
       <input type="text" formControlName="apartmentNumber" class="form-control">
       <div *ngIf="f['apartmentNumber'].invalid && f['apartmentNumber'].touched" class="error-message">
         <div *ngFor="let error of getApartmentNumberErrors()" class="error-item">{{ error }}</div>
@@ -9,7 +10,7 @@
     </div>
   
     <div class="form-group">
-      <label>Floor Number:</label>
+      <label class="text-danger"> <h5>Number:</h5> </label>
       <input type="text" formControlName="floorNumber" class="form-control">
       <div *ngIf="f['floorNumber'].invalid && f['floorNumber'].touched" class="error-message">
         <div *ngFor="let error of getFloorNumberErrors()" class="error-item">{{ error }}</div>
@@ -17,7 +18,7 @@
     </div>
   
     <div class="form-group">
-      <label>Surface:</label>
+      <label class="text-danger"><h5> Surface:</h5> </label>
       <input type="text" formControlName="surface" class="form-control">
       <div *ngIf="f['surface'].invalid && f['surface'].touched" class="error-message">
         <div *ngFor="let error of getSurfaceErrors()" class="error-item">{{ error }}</div>
@@ -25,7 +26,7 @@
     </div>
   
     <div class="form-group">
-      <label>Terrace:</label>
+      <label class="text-danger"><h5> Terrace:</h5> </label>
       <select formControlName="terrace" class="form-control">
         <option value="Yes">Yes</option>
         <option value="No">No</option>
@@ -33,7 +34,7 @@
     </div>
   
     <div class="form-group">
-        <label>Surface Terrace:</label>
+        <label class="text-danger"><h5> Surface Terrace:</h5> </label>
         <input
           type="text"
           formControlName="surfaceTerrace"
@@ -47,7 +48,7 @@
    
   
     <div class="form-group">
-      <label>Category:</label>
+      <label class="text-danger"><h5> Category:</h5> </label>
       <input type="text" formControlName="category" class="form-control">
       <div *ngIf="f['category'].invalid && f['category'].touched" class="error-message">
         <div *ngFor="let error of getCategoryErrors()" class="error-item">{{ error }}</div>
@@ -55,7 +56,7 @@
     </div>
   
     <div class="form-group">
-      <label>Description:</label>
+      <label class="text-danger"><h5> Description:</h5> </label>
       <textarea formControlName="description" class="form-control"></textarea>
       <div *ngIf="f['description'].invalid && f['description'].touched" class="error-message">
         <div *ngFor="let error of getDescriptionErrors()" class="error-item">{{ error }}</div>
@@ -63,7 +64,7 @@
     </div>
   
     <div class="form-group" >
-      <label>Residence:</label>
+      <label class="text-danger"><h5> Residence:</h5> </label>
       <input type="text" formControlName="residence" class="form-control">
       <div *ngIf="f['residence'].invalid && f['residence'].touched" class="error-message">
         <div *ngFor="let error of getResidenceErrors()" class="error-item">{{ error }}</div>
