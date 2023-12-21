@@ -1,0 +1,26 @@
+<input type="text" placeholder="price" [(ngModel)]="price">
+<table class="table" border="2">
+
+    <tr>
+        <th>ID</th>
+        <th>TITLE</th>
+        <th>PRICE</th>
+        <th>QUANTITY</th>
+        <th>LIKE</th>
+        <th>description</th>
+        <th>Actions</th>
+    </tr>
+    <tr *ngFor="let p of listProducts;let i=index">
+        <ng-container *ngIf="p.price>price || price==null">
+            <td>{{p.id}}</td>
+            <td>{{p.title}}</td>
+            <td>{{p.price}}</td>
+            <td>{{p.quantity}}</td>
+            <td>{{p.like}}</td>
+            <td>{{p.description}}</td>
+            <td><button class="btn btn-info" (click)="increment(i)">Like</button></td>
+            <td><button class="btn btn-danger" (click)="buy(i)" [disabled]="p.quantity==0">buy</button></td>
+            <td><button class="btn btn-success" [routerLink]="['/product',p.id]">Details</button></td>
+        </ng-container>
+    </tr>
+</table>

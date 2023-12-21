@@ -1,0 +1,56 @@
+<p>reactive-form works!</p>
+
+<label> login</label>
+<input type="text" [formControl]="login">
+
+<label> Password</label>
+<input type="password" [formControl]="pwd">
+
+<input class="btn btn-info" type="submit" value="save" (click)="showLogin()" [disabled]="login.invalid || pwd.invalid">
+
+
+<h2>FormsGroup</h2>
+
+<form [formGroup]="registreForm">
+
+
+    <div class="form-group">
+        <label> Cin</label>
+        <input type="text" formControlName="cin" placeholder="firstname" class="form-control">
+    </div>
+    <div *ngIf="registreForm.controls['cin'].invalid && registreForm.controls[ 'cin'].touched">
+        <div class="alert  alert-danger" *ngIf="registreForm.get('cin')?.hasError('pattern')">
+            pattern
+        </div>
+    </div>
+    <div class="form-group">
+        <label> firstName</label>
+        <input type="text" formControlName="ft" placeholder="firstname" class="form-control">
+    </div>
+    <div *ngIf="registreForm.controls['ft'].invalid && registreForm.controls[ 'ft'].touched">
+        <div class="alert  alert-danger" *ngIf="registreForm.get('ft')?.hasError('required')">
+            firstName is a required field
+        </div>
+        <div class="alert alert-danger" *ngIf="registreForm.get('ft')?.hasError('minlength')">
+            the firstName minlenght is 3
+        </div>
+    </div>
+    <div class=" form-group ">
+        <label> lastName</label>
+        <input type="text " formControlName="ln " class="form-control ">
+    </div>
+    <div class="alert alert-danger " *ngIf="registreForm.controls[ 'ln'].invalid && registreForm.controls[ 'ln'].touched ">
+        lastName is a required field
+    </div>
+
+    <div class="form-group ">
+        <label> adress</label>
+        <input type="text " formControlName="ad " class="form-control ">
+    </div>
+    <div class="alert alert-danger " *ngIf="registreForm.controls[ 'ad'].invalid && registreForm.controls[ 'ad'].touched ">
+        adress is a required field
+    </div>
+
+    <input class=" btn btn-info " type="submit " value="save " (click)="showLogin() " [disabled]="registreForm.invalid ">
+    <input class="btn btn-danger " type="submit " value="cancel " (click)="reset() ">
+</form>
